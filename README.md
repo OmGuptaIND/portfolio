@@ -1,29 +1,83 @@
-# Create T3 App
+# Portfolio
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- 🧩 **Modular Components**: Easy to add, remove, or modify sections
+- 📱 **Responsive Design**: Looks great on all devices
+- ♿ **Accessible**: Built with accessibility in mind
+- 🎨 **Clean UI**: Inspired by modern portfolio designs
+- 📝 **Blog Ready**: Pre-built blog section for when you're ready to add content
+- 🔧 **Easy to Customize**: All content managed from a single data file
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Components Structure
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+```
+src/app/_components/
+├── LandingPage.tsx          # Main layout component
+├── ProfileHeader.tsx        # Name, title, description, and about section
+├── SocialLinks.tsx          # Social media links with icons
+├── WorkSection.tsx          # Work experience and current activities
+├── ProjectSection.tsx       # Projects with status badges
+├── BlogSection.tsx          # Blog posts (ready for future use)
+├── ImageWithFallback.tsx    # Smart image loading with fallbacks
+└── portfolioData.tsx        # All content and data in one place
+```
 
-## Learn More
+## Customization
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Adding New Sections
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Create a new component in `src/app/_components/`
+2. Add your data to `portfolioData.tsx`
+3. Import and use the component in `LandingPage.tsx`
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Modifying Content
 
-## How do I deploy this?
+All content is centralized in `src/app/_components/portfolioData.tsx`:
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- `profileData`: Personal information
+- `socialLinks`: Social media links with icons
+- `workExperience`: Current work
+- `currentActivities`: Other activities and projects
+- `projects`: Major projects
+- `blogPosts`: Blog posts (ready for blog feature)
+
+### Adding Blog Functionality
+
+The blog components are already built and ready. To activate:
+
+1. Create blog post pages in `src/app/blog/[slug]/`
+2. Update the `blogPosts` array in `portfolioData.tsx`
+3. The `BlogSection` component will automatically display them
+
+## Design Principles
+
+- **Modular**: Each section is a separate, reusable component
+- **Scalable**: Easy to add new sections without breaking existing ones
+- **Maintainable**: All content in one centralized location
+- **Flexible**: Components accept props for different use cases
+
+## Technologies Used
+
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- React 19
+- Biome (linting and formatting)
+
+## Getting Started
+
+1. Install dependencies: `npm install`
+2. Update your information in `src/app/_components/portfolioData.tsx`
+3. Run development server: `npm run dev`
+4. Build for production: `npm run build`
+
+## Future Enhancements
+
+- Dark mode toggle (button already present in header)
+- Blog functionality with markdown support
+- Contact form
+- Animation library integration
+- CMS integration for easier content management

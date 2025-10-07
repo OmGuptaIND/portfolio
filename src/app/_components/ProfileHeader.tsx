@@ -1,6 +1,9 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import type React from "react";
+
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface ProfileHeaderProps {
 	name: string;
@@ -13,6 +16,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 	title,
 	description,
 }) => {
+	const { theme, toggleTheme } = useTheme();
 	return (
 		<header className="mb-8">
 			<div className="mb-4 flex items-start justify-between">
@@ -20,27 +24,21 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 					<h1 className="var(--font-geist-sans) mb-2 font-bold text-4xl">
 						Hi, I'm {name}
 					</h1>
-					<p className="var(--font-geist-sans) mb-4 font-light text-gray-600 text-md italic">
+					<p className="var(--font-geist-sans) mb-4 font-light text-gray-600 text-md italic dark:text-gray-400">
 						{title}
 					</p>
 				</div>
 				<button
+					onClick={toggleTheme}
 					type="button"
-					className="rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200"
+					className="cursor-pointer rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
 					aria-label="Toggle theme"
 				>
-					<svg
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						strokeWidth="2"
-					>
-						<title>Theme toggle</title>
-						<circle cx="12" cy="12" r="5" />
-						<path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
-					</svg>
+					{theme === "dark" ? (
+						<Sun className="h-5 w-5 text-yellow-400" />
+					) : (
+						<Moon className="h-5 w-5 text-gray-600" />
+					)}
 				</button>
 			</div>
 
@@ -48,9 +46,9 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 				<h2 className="var(--font-geist-sans) mb-2 font-medium text-lg">
 					About
 				</h2>
-				<p className="var(--font-geist-sans) text-gray-700 leading-relaxed">
+				<div className="var(--font-geist-sans) text-gray-700 leading-relaxed dark:text-gray-300">
 					{description}
-				</p>
+				</div>
 			</div>
 		</header>
 	);

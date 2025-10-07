@@ -20,7 +20,7 @@ interface WorkSectionProps {
 const WorkSection: React.FC<WorkSectionProps> = ({ title, items }) => {
 	return (
 		<section className="mb-8">
-			<h2 className="mb-6 font-[family-name:var(--font-geist-sans)] font-semibold text-lg">
+			<h2 className="mb-6 font-[family-name:var(--font-geist-sans)] font-semibold text-lg dark:text-gray-100">
 				{title}
 			</h2>
 			<div className="space-y-6">
@@ -36,13 +36,13 @@ const WorkSection: React.FC<WorkSectionProps> = ({ title, items }) => {
 							</div>
 						)}
 						<div className="min-w-0 flex-1">
-							<h3 className="font-[family-name:var(--font-geist-sans)] font-medium text-gray-900">
+							<h3 className="font-[family-name:var(--font-geist-sans)] font-medium text-gray-900 dark:text-gray-100">
 								{item.title}
 							</h3>
-							<p className="font-[family-name:var(--font-geist-sans)] text-gray-600 text-sm">
+							<p className="font-[family-name:var(--font-geist-sans)] text-gray-600 text-sm dark:text-gray-400">
 								{item.company}
 							</p>
-							<p className="mt-2 font-[family-name:var(--font-geist-sans)] text-gray-700 text-sm">
+							<p className="mt-2 font-[family-name:var(--font-geist-sans)] text-gray-700 text-sm dark:text-gray-300">
 								{item.description}
 							</p>
 							{item.url && (
@@ -50,7 +50,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({ title, items }) => {
 									href={item.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="mt-2 inline-block font-[family-name:var(--font-geist-sans)] text-blue-600 text-sm hover:text-blue-800"
+									className="mt-2 inline-block font-[family-name:var(--font-geist-sans)] text-blue-600 text-sm hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
 								>
 									Learn more →
 								</a>

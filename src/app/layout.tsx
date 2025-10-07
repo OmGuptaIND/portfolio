@@ -3,8 +3,8 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Geist, Playfair } from "next/font/google";
 
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import { ThemeScript } from "@/components/ThemeScript";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {

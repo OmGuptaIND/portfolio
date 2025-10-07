@@ -1,17 +1,17 @@
 "use server";
 
 import bcrypt from "bcryptjs";
+import { count, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { count, eq } from "drizzle-orm";
 
-import { db } from "@/server/db";
-import { adminUsers, blogPosts } from "@/server/db/schema";
 import {
 	createSession,
 	destroySession,
 	getCurrentUser,
 } from "@/server/auth/session";
+import { db } from "@/server/db";
+import { adminUsers, blogPosts } from "@/server/db/schema";
 
 type ActionState = {
 	error?: string;
@@ -221,7 +221,9 @@ export const updateBlogPost = async (
 	return { success: "Post updated." };
 };
 
-export const deleteBlogPost = async (formData: FormData): Promise<ActionState> => {
+export const deleteBlogPost = async (
+	formData: FormData,
+): Promise<ActionState> => {
 	const database = ensureDatabase();
 	const currentUser = await getCurrentUser();
 

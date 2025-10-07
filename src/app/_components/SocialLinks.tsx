@@ -1,7 +1,7 @@
 "use client";
 
-import type React from "react";
 import { useTheme } from "@/contexts/ThemeContext";
+import type React from "react";
 
 interface SocialLink {
 	id: string;

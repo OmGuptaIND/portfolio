@@ -1,5 +1,5 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import type React from "react";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 // Portfolio data - centralized content management
 export const profileData = {

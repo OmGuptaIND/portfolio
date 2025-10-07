@@ -1,8 +1,8 @@
 "use client";
 
+import { useTheme } from "@/contexts/ThemeContext";
 import type React from "react";
 import ImageWithFallback from "./ImageWithFallback";
-import { useTheme } from "@/contexts/ThemeContext";
 
 interface WorkItem {
 	id: string;
@@ -79,7 +79,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ item, styles }) => {
 						href={item.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className={`mt-2 inline-block font-[family-name:var(--font-geist-sans)] text-sm ${styles.linkText} focus-visible:outline-none focus-visible:underline`}
+						className={`mt-2 inline-block font-[family-name:var(--font-geist-sans)] text-sm ${styles.linkText} focus-visible:underline focus-visible:outline-none`}
 					>
 						{linkLabel}
 					</a>

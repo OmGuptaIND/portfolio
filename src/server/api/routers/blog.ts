@@ -1,11 +1,13 @@
 import { desc } from "drizzle-orm";
 
-import type { BlogPost } from "@/types/content";
+import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { db } from "@/server/db";
 import { blogPosts } from "@/server/db/schema";
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
+import type { BlogPost } from "@/types/content";
 
-const formatPublishedDate = (input: string | null | undefined): string | undefined => {
+const formatPublishedDate = (
+	input: string | null | undefined,
+): string | undefined => {
 	if (!input) {
 		return undefined;
 	}

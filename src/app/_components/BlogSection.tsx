@@ -1,10 +1,10 @@
 "use client";
 
-import { Fragment } from "react";
-import type React from "react";
-import { Loader2 } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import type { BlogPost } from "@/types/content";
+import { Loader2 } from "lucide-react";
+import { Fragment } from "react";
+import type React from "react";
 
 interface BlogSectionProps {
 	title: string;
@@ -120,7 +120,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
 								href={post.url}
 								target="_blank"
 								rel="noopener noreferrer"
-								className={`inline-block font-[family-name:var(--font-geist-sans)] text-sm ${linkColor} focus-visible:outline-none focus-visible:underline`}
+								className={`inline-block font-[family-name:var(--font-geist-sans)] text-sm ${linkColor} focus-visible:underline focus-visible:outline-none`}
 							>
 								Read more →
 							</a>

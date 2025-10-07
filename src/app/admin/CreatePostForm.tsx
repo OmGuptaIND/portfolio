@@ -1,7 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
 import { Loader2 } from "lucide-react";
+import { useFormState, useFormStatus } from "react-dom";
 
 import { createBlogPost } from "./actions";
 
@@ -16,7 +16,7 @@ const SubmitButton = () => {
 		<button
 			type="submit"
 			disabled={pending}
-			className="inline-flex min-w-[160px] items-center justify-center rounded-full bg-blue-600 px-5 py-2 font-[family-name:var(--font-geist-sans)] text-sm font-medium text-white shadow transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-70 dark:bg-blue-500 dark:text-gray-50 dark:hover:bg-blue-400"
+			className="inline-flex min-w-[160px] items-center justify-center rounded-full bg-blue-600 px-5 py-2 font-[family-name:var(--font-geist-sans)] font-medium text-sm text-white shadow transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-70 dark:bg-blue-500 dark:text-gray-50 dark:hover:bg-blue-400"
 		>
 			{pending ? (
 				<>
@@ -43,7 +43,7 @@ const TextInput = ({
 	placeholder?: string;
 	required?: boolean;
 }) => (
-	<label className="block space-y-1 font-[family-name:var(--font-geist-sans)] text-sm text-gray-700 dark:text-gray-300">
+	<label className="block space-y-1 font-[family-name:var(--font-geist-sans)] text-gray-700 text-sm dark:text-gray-300">
 		<span className="font-medium">{label}</span>
 		<input
 			name={name}
@@ -66,7 +66,7 @@ const TextArea = ({
 	placeholder?: string;
 	required?: boolean;
 }) => (
-	<label className="block space-y-1 font-[family-name:var(--font-geist-sans)] text-sm text-gray-700 dark:text-gray-300">
+	<label className="block space-y-1 font-[family-name:var(--font-geist-sans)] text-gray-700 text-sm dark:text-gray-300">
 		<span className="font-medium">{label}</span>
 		<textarea
 			name={name}
@@ -101,11 +101,7 @@ const CreatePostForm: React.FC = () => {
 				type="url"
 				placeholder="https://yourdomain.com/article"
 			/>
-			<TextInput
-				label="Tags"
-				name="tags"
-				placeholder="ai, startups, product"
-			/>
+			<TextInput label="Tags" name="tags" placeholder="ai, startups, product" />
 			<div className="grid gap-4 sm:grid-cols-2">
 				<TextInput
 					label="Published at"
@@ -120,12 +116,12 @@ const CreatePostForm: React.FC = () => {
 				/>
 			</div>
 			{state.error && (
-				<p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 font-[family-name:var(--font-geist-sans)] text-sm text-red-600 dark:border-red-500/40 dark:bg-red-950/40 dark:text-red-200">
+				<p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 font-[family-name:var(--font-geist-sans)] text-red-600 text-sm dark:border-red-500/40 dark:bg-red-950/40 dark:text-red-200">
 					{state.error}
 				</p>
 			)}
 			{state.success && (
-				<p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 font-[family-name:var(--font-geist-sans)] text-sm text-emerald-600 dark:border-emerald-500/40 dark:bg-emerald-950/40 dark:text-emerald-200">
+				<p className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 font-[family-name:var(--font-geist-sans)] text-emerald-600 text-sm dark:border-emerald-500/40 dark:bg-emerald-950/40 dark:text-emerald-200">
 					{state.success}
 				</p>
 			)}

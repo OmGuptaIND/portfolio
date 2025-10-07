@@ -1,10 +1,10 @@
 import { count, desc } from "drizzle-orm";
 
+import { getCurrentUser } from "@/server/auth/session";
+import { db } from "@/server/db";
+import { adminUsers, blogPosts } from "@/server/db/schema";
 import AdminDashboard from "./AdminDashboard";
 import AuthForms from "./AuthForms";
-import { db } from "@/server/db";
-import { getCurrentUser } from "@/server/auth/session";
-import { adminUsers, blogPosts } from "@/server/db/schema";
 
 const ensureDatabase = () => {
 	if (!db) {
@@ -35,9 +35,7 @@ const fetchPosts = async () => {
 
 const existingUserCount = async () => {
 	const database = ensureDatabase();
-	const [result] = await database
-		.select({ value: count() })
-		.from(adminUsers);
+	const [result] = await database.select({ value: count() }).from(adminUsers);
 	return Number(result?.value ?? 0);
 };
 

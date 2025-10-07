@@ -1,11 +1,11 @@
 "use client";
 
+import { api } from "@/trpc/react";
 import type React from "react";
 import BlogSection from "./BlogSection";
 import ProfileHeader from "./ProfileHeader";
 import SocialLinks from "./SocialLinks";
 import WorkSection from "./WorkSection";
-import { api } from "@/trpc/react";
 import {
 	currentActivities,
 	profileData,
@@ -20,7 +20,8 @@ const LandingPage: React.FC = () => {
 	});
 
 	const blogPosts = data?.posts ?? [];
-	const errorMessage = data?.errorMessage ?? (error ? "Unable to load posts right now." : null);
+	const errorMessage =
+		data?.errorMessage ?? (error ? "Unable to load posts right now." : null);
 
 	return (
 		<main className="mx-auto min-h-screen max-w-4xl px-4 py-12">

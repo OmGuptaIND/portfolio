@@ -6,8 +6,10 @@ import BlogSection from "./BlogSection";
 import ProfileHeader from "./ProfileHeader";
 import SocialLinks from "./SocialLinks";
 import WorkSection from "./WorkSection";
+import SpotifySection from "./SpotifySection";
 import {
 	currentActivities,
+	featuredPlaylist,
 	profileData,
 	socialLinks,
 	workExperience,
@@ -43,6 +45,12 @@ const LandingPage: React.FC = () => {
 					posts={blogPosts}
 					isLoading={isLoading}
 					errorMessage={errorMessage}
+				/>
+
+				<SpotifySection
+					title={featuredPlaylist.title}
+					description={featuredPlaylist.description}
+					playlistSrc={featuredPlaylist.playlistSrc}
 				/>
 			</div>
 		</main>

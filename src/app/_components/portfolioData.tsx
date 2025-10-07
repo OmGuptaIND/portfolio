@@ -80,3 +80,11 @@ export const currentActivities = [
 		url: "https://calendly.com/omgupta0720/30min",
 	},
 ];
+
+export const featuredPlaylist = {
+	title: "What I'm Listening To",
+	description:
+		"A curated playlist that keeps me in flow while building and training.",
+	playlistSrc:
+		"https://open.spotify.com/embed/playlist/5NqiKLR940p0vBaetUQBpF?utm_source=generator",
+};

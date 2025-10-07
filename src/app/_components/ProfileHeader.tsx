@@ -45,7 +45,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 			</div>
 
 			<div className="mb-6">
-				<h2 className="var(--font-geist-sans) mb-2 font-semibold text-lg">
+				<h2 className="var(--font-geist-sans) mb-2 font-medium text-lg">
 					About
 				</h2>
 				<p className="var(--font-geist-sans) text-gray-700 leading-relaxed">

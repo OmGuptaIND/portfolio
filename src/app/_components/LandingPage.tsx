@@ -15,7 +15,7 @@ import {
 
 const LandingPage: React.FC = () => {
 	return (
-		<main className="mx-auto min-h-screen max-w-2xl px-6 py-12">
+		<main className="mx-auto min-h-screen max-w-4xl px-4 py-12">
 			<div className="space-y-8">
 				{/* Profile Header */}
 				<ProfileHeader

@@ -10,7 +10,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 export const metadata: Metadata = {
 	title: "itsomg - Personal website",
 	description: "Om Gupta's personal website - engineer, entrepreneur, athlete",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
 const geist = Geist({

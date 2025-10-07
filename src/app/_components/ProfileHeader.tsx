@@ -17,27 +17,36 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 	description,
 }) => {
 	const { theme, toggleTheme } = useTheme();
+	const isDark = theme === "dark";
+	const subtitleColor = isDark ? "text-gray-400" : "text-gray-800";
+	const descriptionColor = isDark ? "text-gray-100" : "text-gray-700";
+	const buttonColorClass = isDark
+		? "bg-gray-800 hover:bg-gray-600"
+		: "bg-gray-200 hover:bg-gray-300";
+
 	return (
 		<header className="mb-8">
 			<div className="mb-4 flex items-start justify-between">
 				<div>
-					<h1 className="var(--font-geist-sans) mb-2 font-bold text-4xl">
+					<h1 className="var(--font-geist-sans) mb-2 font-bold text-3xl">
 						Hi, I'm {name}
 					</h1>
-					<p className="var(--font-geist-sans) mb-4 font-light text-gray-600 text-md italic dark:text-gray-400">
+					<p
+						className={`var(--font-geist-sans) mb-4 font-extralight text-sm italic ${subtitleColor}`}
+					>
 						{title}
 					</p>
 				</div>
 				<button
 					onClick={toggleTheme}
 					type="button"
-					className="cursor-pointer rounded-full bg-gray-100 p-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
+					className={`${buttonColorClass} cursor-pointer rounded-full p-2 transition-colors`}
 					aria-label="Toggle theme"
 				>
 					{theme === "dark" ? (
 						<Sun className="h-5 w-5 text-yellow-400" />
 					) : (
-						<Moon className="h-5 w-5 text-gray-600" />
+						<Moon className="h-5 w-5 text-blue-800" />
 					)}
 				</button>
 			</div>
@@ -46,7 +55,9 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 				<h2 className="var(--font-geist-sans) mb-2 font-medium text-lg">
 					About
 				</h2>
-				<div className="var(--font-geist-sans) text-gray-700 leading-relaxed dark:text-gray-300">
+				<div
+					className={`var(--font-geist-sans) font-normal leading-relaxed ${descriptionColor}`}
+				>
 					{description}
 				</div>
 			</div>

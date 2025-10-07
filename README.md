@@ -42,15 +42,23 @@ All content is centralized in `src/app/_components/portfolioData.tsx`:
 - `workExperience`: Current work
 - `currentActivities`: Other activities and projects
 - `projects`: Major projects
-- `blogPosts`: Blog posts (ready for blog feature)
+- Blog posts are managed in the database via the admin console (`/admin`)
 
 ### Adding Blog Functionality
 
-The blog components are already built and ready. To activate:
+Hook the blog into a Neon-hosted Postgres database (or any Postgres-compatible provider) using Drizzle ORM and the built-in admin console:
 
-1. Create blog post pages in `src/app/blog/[slug]/`
-2. Update the `blogPosts` array in `portfolioData.tsx`
-3. The `BlogSection` component will automatically display them
+1. Provision a Neon database and copy the connection string (e.g. `postgres://...`).
+2. Create a `.env.local` with `NEON_DATABASE_URL="postgres://..."` (or `DATABASE_URL`).
+3. Push the Drizzle schema:
+   ```bash
+   npm run db:push
+   ```
+   This creates:
+   - `blog_posts`
+   - `admin_users`
+   - `admin_sessions`
+4. Visit `/admin` to create the first admin account, then add, edit, or delete blog posts through the UI. Posts are always read from the database—no fallback seed content is displayed.
 
 ## Design Principles
 

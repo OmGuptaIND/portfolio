@@ -1,4 +1,7 @@
+"use client";
+
 import type React from "react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface SocialLink {
 	id: string;
@@ -12,6 +15,20 @@ interface SocialLinksProps {
 }
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
+	const { theme } = useTheme();
+	const isDark = theme === "dark";
+	const baseButtonClass =
+		"flex h-10 w-10 items-center justify-center rounded-full transition-colors";
+	const lightButtonClass =
+		"bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-800";
+	const darkButtonClass =
+		"bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-gray-200";
+	const focusRingClass =
+		"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 focus-visible:ring-offset-2";
+	const focusRingOffsetClass = isDark
+		? "focus-visible:ring-offset-gray-900"
+		: "focus-visible:ring-offset-white";
+
 	return (
 		<div className="mb-8 flex space-x-4">
 			{links.map((link) => (
@@ -20,7 +37,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links }) => {
 					href={link.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200 hover:text-gray-800 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200"
+					className={`${baseButtonClass} ${isDark ? darkButtonClass : lightButtonClass} ${focusRingClass} ${focusRingOffsetClass}`}
 					aria-label={link.name}
 				>
 					{link.icon}

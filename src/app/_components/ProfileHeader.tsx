@@ -5,15 +5,13 @@ import type React from "react";
 interface ProfileHeaderProps {
 	name: string;
 	title: string;
-	description: string;
-	age: number;
+	description: React.ReactNode;
 }
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 	name,
 	title,
 	description,
-	age,
 }) => {
 	return (
 		<header className="mb-8">
@@ -22,11 +20,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 					<h1 className="var(--font-geist-sans) mb-2 font-bold text-4xl">
 						Hi, I'm {name}
 					</h1>
-					<p className="var(--font-geist-sans) mb-4 text-gray-600 text-lg">
+					<p className="var(--font-geist-sans) mb-4 font-light text-gray-600 text-md italic">
 						{title}
-					</p>
-					<p className="var(--font-geist-sans) text-gray-500 text-sm">
-						{age} years old
 					</p>
 				</div>
 				<button

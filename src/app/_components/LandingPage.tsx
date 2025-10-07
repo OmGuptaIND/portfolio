@@ -3,14 +3,12 @@
 import type React from "react";
 import BlogSection from "./BlogSection";
 import ProfileHeader from "./ProfileHeader";
-import ProjectSection from "./ProjectSection";
 import SocialLinks from "./SocialLinks";
 import WorkSection from "./WorkSection";
 import {
 	blogPosts,
 	currentActivities,
 	profileData,
-	projects,
 	socialLinks,
 	workExperience,
 } from "./portfolioData";
@@ -24,7 +22,6 @@ const LandingPage: React.FC = () => {
 					name={profileData.name}
 					title={profileData.title}
 					description={profileData.description}
-					age={profileData.age}
 				/>
 
 				{/* Social Links */}
@@ -34,10 +31,7 @@ const LandingPage: React.FC = () => {
 				<WorkSection title="This is what I am doing" items={workExperience} />
 
 				{/* Current Activities */}
-				<WorkSection title="Current Activities" items={currentActivities} />
-
-				{/* Projects */}
-				<ProjectSection title="Other projects" projects={projects} />
+				<WorkSection title="Wanna Connect?" items={currentActivities} />
 
 				{/* Blog Section - Ready for when you add blogs */}
 				<BlogSection title="Latest Posts" posts={blogPosts.slice(0, 3)} />
